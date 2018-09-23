@@ -5,6 +5,7 @@ include haskell/Makefile
 include node/Makefile
 include python/Makefile
 include rust/Makefile
+include java/Makefile
 
 all_images: python3_image python2_image pypy3_image pypy3_image golang_image japronto_image rust_image
 

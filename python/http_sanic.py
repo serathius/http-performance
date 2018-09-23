@@ -1,10 +1,6 @@
 from sanic import Sanic
 from sanic import response
 
-from sanic import Sanic
-from sanic.config import LOGGING
-
-LOGGING['loggers']['network']['handlers'] = []
 app = Sanic()
 
 @app.route("/")
@@ -13,4 +9,4 @@ async def test(request):
 
 
 if __name__ == "__main__":
-    app.run(log_config=None, debug=False)
+    app.run(log_config=None, debug=False, access_log=False)

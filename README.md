@@ -1,21 +1,25 @@
-Goal of this benchmarks is to prove that faster programming language do not imply lower overhead on http server.
+Benchmarking HTTP servers overhead
 
-Minimize metric: P95 latency
-
-Requirements 
-* 3 concurrent connections
-* min 200 requests per second
-* P95 latency < 1ms
-* Per core
-
+Requirements:
+* Return 200 response with content `Hello, World!`
 
 Run server 
 ```bash
 make sanic_python3
 ```
 
-Test performance
+Benchmark 100r/s
 ```bash
-make profile
+make benchmark_1
+```
+
+Benchmark 1000r/s
+```bash
+make benchmark_2
+```
+
+Benchmark 10000r/s
+```bash
+make benchmark_3
 ```
 

@@ -1,10 +1,6 @@
 [package]
-
 name = "http_hyper"
 version = "0.0.1"
-authors = ["Your Name <you@example.com>"]
 
 [dependencies]
 hyper = "0.12"
-futures = "*"
-pretty_env_logger = "*"

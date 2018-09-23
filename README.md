@@ -21,8 +21,8 @@ doesn't mean that rest of system can handle traffic and could lead to taking sys
 ## Results
 ### Top 3 for 100 r/s
 * python3 falcon meinheld
+* rust hyper
 * haskell warp
-* java
 
 ### Top 3 for 1k r/s
 * python3 falcon meinheld
@@ -40,13 +40,13 @@ doesn't mean that rest of system can handle traffic and could lead to taking sys
 | python3  | falcon    | meinheld  | 1.99       | 2.04      | 881.15    |     
 | golang   |           | fasthttp  | 2.23       | 2.07      | 20.35     |
 | haskell  |           | warp      | 2.12       | 2.08      | 23.31     |
+| rust     | hyper     |           | 2.05       | 2.18      | 16.35     |
 | python3  | vibora    |           | 2.21       | 2.22      | 19.87     |
 | golang   |           | nett/http | 2.33       | 2.35      |           |
 | java     |           |           | 2.17       | 2.39      |           |
 | node     |           |           | 2.17       | 2.55      | 35.74     |
 | python3  | falcon    | bjoern    | 2.33       | 2.93      | 28.29     |
 | python3  | sanic     |           | 2.52       | 3.07      | 20.61     |
-| rust     | hyper     |           | 2.31       | 3.30      | 19.33     |
 | python3  | flask     | bjoern    | 3.11       | 5.11      |           |
 | python3  | aiohttp   |           | 2.88       | 5.85      |           |
 | pypy2    | falcon    | meinheld  | 2.17       | 7.13      |           |

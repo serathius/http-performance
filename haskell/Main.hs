@@ -1,20 +1,15 @@
-import Network.HTTP.Types (status200)
-import Network.Wai (Response, responseLBS)
-import Network.Wai.Internal (ResponseReceived)
+{-# LANGUAGE OverloadedStrings #-}
+
+import Network.Wai (responseLBS, Application)
 import Network.Wai.Handler.Warp (run)
-import Network.Wai.Predicate (true)
-import Network.Wai.Routing (Routes, route, continue, get, prepare, Continue)
-import qualified Data.ByteString.Lazy as Lazy (ByteString)
+import Network.HTTP.Types (status200)
+import Network.HTTP.Types.Header (hContentType)
 
-main :: IO ()
-main = run 8000 (route (prepare app))
+main = do
+    let port = 8000
+    putStrLn $ "Listening on port " ++ show port
+    run port app
 
-app :: Routes a IO ()
-app = do
-    get "/" (respond200 "Hello World!") true
-
-respond200 :: Lazy.ByteString -> a -> Continue IO -> IO ResponseReceived
-respond200 text = continue . const $ writeTextResponse text
-
-writeTextResponse :: Monad m => Lazy.ByteString -> m Response
-writeTextResponse = return . responseLBS status200 []
+app :: Application
+app req f =
+    f $ responseLBS status200 [(hContentType, "text/plain")] "Hello, world!"

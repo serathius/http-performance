@@ -40,7 +40,7 @@ doesn't mean that rest of system can handle traffic and could lead to taking sys
 | python3  | falcon    | meinheld  | 1.99       | 2.04      | 881.15    |     
 | golang   |           | fasthttp  | 2.23       | 2.07      | 20.35     |
 | haskell  |           | warp      | 2.12       | 2.08      | 23.31     |
-| python3  | vibora    | warp      | 2.21       | 2.22      | 19.87     |
+| python3  | vibora    |           | 2.21       | 2.22      | 19.87     |
 | golang   |           | nett/http | 2.33       | 2.35      |           |
 | java     |           |           | 2.17       | 2.39      |           |
 | node     |           |           | 2.17       | 2.55      | 35.74     |

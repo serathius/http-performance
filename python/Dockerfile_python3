@@ -3,4 +3,4 @@ RUN pip install cython
 RUN pip install -v --no-binary :all: falcon
 RUN pip install gunicorn uwsgi gevent eventlet sanic
 RUN pip install tornado
-ADD . .
+COPY . .

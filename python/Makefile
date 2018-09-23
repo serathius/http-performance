@@ -36,3 +36,6 @@ tornado_pypy2: pypy2_image
 
 vibora_python3: python3_image
 	$(RUN) http_python3 python3 -m http_vibora
+
+aiohttp_python3: python3_image
+	$(RUN) http_python3 python3 -m http_aiohttp

@@ -11,9 +11,9 @@ japronto_image:
 
 # Falcon
 falcon_python3_gunicorn_sync: python3_image
-	 http_python3 gunicorn http_falcon:app -w 1 --worker-class=sync
+	$(RUN) http_python3 gunicorn http_falcon:app -w 1 --worker-class=sync
 falcon_python3_gunicorn_meinheld: python3_image
-	 http_python3 gunicorn http_falcon:app -w 1  --worker-class="egg:meinheld#gunicorn_worker"
+	$(RUN) http_python3 gunicorn http_falcon:app -w 1  --worker-class="egg:meinheld#gunicorn_worker"
 falcon_pypy2_gunicorn_sync: pypy2_image
 	$(RUN) http_pypy2 gunicorn http_falcon:app -w 1 --worker-class=sync
 falcon_pypy3_gunicorn_sync: pypy3_image

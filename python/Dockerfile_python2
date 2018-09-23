@@ -1,3 +1,3 @@
 FROM python:2.7.15
-RUN pip install falcon gunicorn uwsgi gevent eventlet tornado meinheld
+RUN pip install falcon gunicorn uwsgi gevent eventlet tornado meinheld flask
 COPY . .

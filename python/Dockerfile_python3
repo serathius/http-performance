@@ -1,6 +1,3 @@
 FROM python:3.6.6
-RUN pip install cython
-RUN pip install -v --no-binary :all: falcon
-RUN pip install gunicorn uwsgi gevent eventlet sanic
-RUN pip install tornado
+RUN pip install falcon gunicorn uwsgi gevent eventlet sanic tornado
 COPY . .

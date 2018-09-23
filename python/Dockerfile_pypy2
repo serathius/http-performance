@@ -1,4 +1,3 @@
 FROM pypy:2-6.0.0
-RUN pypy -m pip install falcon gunicorn uwsgi gevent eventlet
-RUN pypy -m pip install tornado
+RUN pypy -m pip install falcon gunicorn uwsgi gevent eventlet tornado
 COPY . .

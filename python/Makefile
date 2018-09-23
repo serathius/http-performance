@@ -12,6 +12,20 @@ japronto_image:
 # Falcon
 falcon_python3_gunicorn_sync: python3_image
 	$(RUN) http_python3 gunicorn http_falcon:app -w 1 --worker-class=sync
+falcon_python3_gunicorn_eventlet: python3_image
+	$(RUN) http_python3 gunicorn http_falcon:app -w 1 --worker-class=eventlet
+falcon_python3_gunicorn_gevent: python3_image
+	$(RUN) http_python3 gunicorn http_falcon:app -w 1 --worker-class=gevent
+falcon_python3_gunicorn_tornado: python3_image
+	$(RUN) http_python3 gunicorn http_falcon:app -w 1 --worker-class=tornado
+falcon_python3_gunicorn_gthread: python3_image
+	$(RUN) http_python3 gunicorn http_falcon:app -w 1 --worker-class=gthread
+falcon_python3_bjoern: python3_image
+	$(RUN) --env SERVER=bjoern http_python3 python -m http_falcon
+falcon_python3_netius: python3_image
+	$(RUN) --env SERVER=netius http_python3 python -m http_falcon
+falcon_python3_waitress: python3_image
+	$(RUN) --env SERVER=waitress http_python3 python -m http_falcon
 falcon_python3_gunicorn_meinheld: python3_image
 	$(RUN) http_python3 gunicorn http_falcon:app -w 1  --worker-class="egg:meinheld#gunicorn_worker"
 falcon_pypy2_gunicorn_sync: pypy2_image
@@ -21,9 +35,23 @@ falcon_pypy3_gunicorn_sync: pypy3_image
 
 # Flask
 flask_python3_gunicorn_sync: python3_image
-	$(RUN)  http_python3 gunicorn http_flask:app -w 1 --worker-class=sync
+	$(RUN) http_python3 gunicorn http_flask:app -w 1 --worker-class=sync
+flask_python3_gunicorn_eventlet: python3_image
+	$(RUN) http_python3 gunicorn http_flask:app -w 1 --worker-class=eventlet
+flask_python3_gunicorn_gevent: python3_image
+	$(RUN) http_python3 gunicorn http_flask:app -w 1 --worker-class=gevent
+flask_python3_gunicorn_tornado: python3_image
+	$(RUN) http_python3 gunicorn http_flask:app -w 1 --worker-class=tornado
+flask_python3_gunicorn_gthread: python3_image
+	$(RUN) http_python3 gunicorn http_flask:app -w 1 --worker-class=gthread
+flask_python3_bjoern: python3_image
+	$(RUN) --env SERVER=bjoern http_python3 python -m http_flask
+flask_python3_netius: python3_image
+	$(RUN) --env SERVER=netius http_python3 python -m http_flask
+flask_python3_waitress: python3_image
+	$(RUN) --env SERVER=waitress http_python3 python -m http_flask
 flask_python3_gunicorn_meinheld: python3_image
-	$(RUN)  http_python3 gunicorn http_flask:app -w 1  --worker-class="egg:meinheld#gunicorn_worker"
+	$(RUN) http_python3 gunicorn http_flask:app -w 1 --worker-class="egg:meinheld#gunicorn_worker"
 flask_pypy2_gunicorn_sync: pypy2_image
 	$(RUN) http_pypy2 gunicorn http_flask:app -w 1 --worker-class=sync
 flask_pypy3_gunicorn_sync: pypy3_image

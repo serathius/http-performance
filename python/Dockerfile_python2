@@ -1,3 +1,4 @@
 FROM python:2.7.15
-RUN pip install falcon gunicorn uwsgi gevent eventlet tornado meinheld flask
+RUN apt-get update && apt-get install -y libev-dev
+RUN pip install falcon gunicorn uwsgi gevent eventlet tornado meinheld flask bjoern
 COPY . .

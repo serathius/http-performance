@@ -2,7 +2,7 @@ from japronto import Application
 
 
 def hello(request):
-    return request.Response(text='Hello world!')
+    return request.Response(text='Hello, world!')
 
 
 app = Application()

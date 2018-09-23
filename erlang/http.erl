@@ -12,7 +12,7 @@ loop(Sock) ->
     loop(Sock).
 
 handle(Conn) ->
-    gen_tcp:send(Conn, response("Hello World!")),
+    gen_tcp:send(Conn, response("Hello, World!")),
     gen_tcp:close(Conn).
 
 response(Str) ->

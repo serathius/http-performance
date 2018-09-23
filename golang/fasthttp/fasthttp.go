@@ -7,7 +7,7 @@ import (
 
 
 func fastHTTPHandler(ctx *fasthttp.RequestCtx) {
-	fmt.Fprintf(ctx, "Hi there! RequestURI is %q", ctx.RequestURI())
+	fmt.Fprintf(ctx, "Hello, World!")
 }
 
 func main() {

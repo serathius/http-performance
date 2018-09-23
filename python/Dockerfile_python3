@@ -1,4 +1,4 @@
-FROM python:3.6.1
+FROM python:3.6.6
 RUN pip install cython
 RUN pip install -v --no-binary :all: falcon
 RUN pip install gunicorn uwsgi gevent eventlet sanic

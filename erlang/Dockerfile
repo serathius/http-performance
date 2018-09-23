@@ -1,3 +1,3 @@
-FROM erlang:20.0.4
+FROM erlang:21.0.9
 WORKDIR /erlang/src
 COPY . .

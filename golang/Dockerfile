@@ -1,4 +1,4 @@
-FROM golang:1.9.0-alpine3.6
+FROM golang:1.11.0
 RUN apk --no-cache add git
 RUN go get -u github.com/valyala/fasthttp
 WORKDIR /go/src/

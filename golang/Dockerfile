@@ -1,5 +1,5 @@
 FROM golang:1.11.0
-RUN apk --no-cache add git
+RUN apt-get update && apt-get install git
 RUN go get -u github.com/valyala/fasthttp
 WORKDIR /go/src/
 COPY . .

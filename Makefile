@@ -1,4 +1,4 @@
-RUN=docker run --network host --rm --cpus=1
+RUN=docker run --network host --rm --cpuset-cpus="0" --cpus=1
 include erlang/Makefile
 include golang/Makefile
 include haskell/Makefile

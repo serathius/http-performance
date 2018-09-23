@@ -33,3 +33,6 @@ tornado_python3: python3_image
 
 tornado_pypy2: pypy2_image
 	$(RUN) http_pypy2 pypy -m http_tornado
+
+vibora_python3: python3_image
+	$(RUN) http_python3 python3 -m http_vibora

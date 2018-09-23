@@ -1,8 +1,8 @@
--module(hello).
--export([start/1]).
+-module(http).
+-export([start/0]).
 
-start(Port) ->
-    spawn(fun () -> {ok, Sock} = gen_tcp:listen(Port, [{active, false}]),
+start() ->
+    spawn(fun () -> {ok, Sock} = gen_tcp:listen(8000, [{active, false}]),
                     loop(Sock) end).
 
 loop(Sock) ->

@@ -22,7 +22,7 @@ doesn't mean that rest of system can handle traffic and could lead to taking sys
 ### Top 3 for 100 r/s
 * python3 falcon meinheld
 * rust hyper
-* haskell warp
+* python3 japronto
 
 ### Top 3 for 1k r/s
 * python3 falcon meinheld
@@ -30,9 +30,9 @@ doesn't mean that rest of system can handle traffic and could lead to taking sys
 * haskell warp
 
 ### Top 3 for 10k r/s
+* python3 japronto
 * rust hyper
 * python3 vibora
-* golang fasthttp
 
 ### Full Table of P99 latency in ms
 | Language | Framework | Server    | 100 r/s    | 1000 r/s  | 10000 r/s |
@@ -40,6 +40,7 @@ doesn't mean that rest of system can handle traffic and could lead to taking sys
 | python3  | falcon    | meinheld  | 1.99       | 2.04      | 881.15    |     
 | golang   |           | fasthttp  | 2.23       | 2.07      | 20.35     |
 | haskell  |           | warp      | 2.12       | 2.08      | 23.31     |
+| python3  | japronto  |           | 2.09       | 2.14      | 12.38     |
 | rust     | hyper     |           | 2.05       | 2.18      | 16.35     |
 | python3  | vibora    |           | 2.21       | 2.22      | 19.87     |
 | golang   |           | nett/http | 2.33       | 2.35      |           |

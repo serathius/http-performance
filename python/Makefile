@@ -63,7 +63,7 @@ flask_pypy3_gunicorn_sync: pypy3_image
 
 # Japronto
 japronto_python3: japronto_image
-	$(RUN) http_japronto python -m http_japronto
+	$(RUN) http_japronto --script ./http_japronto.py
 
 # Sanic
 sanic_python3: python3_image

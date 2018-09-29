@@ -1,6 +1,6 @@
 haskell_image:
-	cd haskell && stack build
+	cd haskell/warp && stack build
 	docker build -t http_haskell haskell
 
 haskell_warp: haskell_image
-	$(RUN) http_haskell ./hello
+	$(RUN) http_haskell /http_warp

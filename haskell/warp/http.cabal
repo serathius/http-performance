@@ -1,9 +1,9 @@
-name:                hello
+name:                http
 version:             0.1.0.0
 build-type:          Simple
 cabal-version:       >=1.10
 
-executable hello
+executable http
   main-is:             Main.hs
   build-depends:       base
                      , http-types

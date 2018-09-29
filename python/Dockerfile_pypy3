@@ -1,4 +1,4 @@
 FROM pypy:3-6.0.0
 RUN apt-get update && apt-get install -y libev-dev
-RUN pypy3 -m pip install falcon gunicorn uwsgi gevent eventlet tornado meinheld flask bjoern
+RUN pypy3 -m pip install falcon gunicorn uwsgi gevent eventlet tornado meinheld flask bjoern Django
 COPY . .

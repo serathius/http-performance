@@ -1,4 +1,4 @@
 FROM python:3.6.6
 RUN apt-get update && apt-get install -y libev-dev
-RUN pip install falcon gunicorn uwsgi gevent eventlet sanic tornado meinheld flask vibora aiohttp bjoern netius waitress uwsgi
+RUN pip install falcon gunicorn uwsgi gevent eventlet sanic tornado meinheld flask vibora aiohttp bjoern netius waitress uwsgi Django
 COPY . .

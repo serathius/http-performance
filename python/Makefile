@@ -9,6 +9,28 @@ pypy3_image:
 japronto_image:
 	docker build -f python/Dockerfile_japronto -t http_japronto python
 
+# Django
+python3_django_gunicorn_sync: python3_image
+	$(RUN) http_python3 gunicorn http_django:app -w 1 --worker-class=sync
+python3_django_gunicorn_eventlet: python3_image
+	$(RUN) http_python3 gunicorn http_django:app -w 1 --worker-class=eventlet
+python3_django_gunicorn_gevent: python3_image
+	$(RUN) http_python3 gunicorn http_django:app -w 1 --worker-class=gevent
+python3_django_gunicorn_tornado: python3_image
+	$(RUN) http_python3 gunicorn http_django:app -w 1 --worker-class=tornado
+python3_django_gunicorn_gthread: python3_image
+	$(RUN) http_python3 gunicorn http_django:app -w 1 --worker-class=gthread
+python3_django_bjoern: python3_image
+	$(RUN) --env SERVER=bjoern http_python3 python -m http_django
+python3_django_netius: python3_image
+	$(RUN) --env SERVER=netius http_python3 python -m http_django
+python3_django_waitress: python3_image
+	$(RUN) --env SERVER=waitress http_python3 python -m http_django
+python3_django_gunicorn_meinheld: python3_image
+	$(RUN) http_python3 gunicorn http_django:app -w 1  --worker-class="egg:meinheld#gunicorn_worker"
+pypy3_django_gunicorn_sync: pypy3_image
+	$(RUN) http_pypy3 gunicorn http_django:app -w 1 --worker-class=sync
+
 # Falcon
 python3_falcon_gunicorn_sync: python3_image
 	$(RUN) http_python3 gunicorn http_falcon:app -w 1 --worker-class=sync

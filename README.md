@@ -6,35 +6,23 @@ slow down your whole system because of multiple slow responses. Building for pre
 and dropping excess traffic can also improve stability of whole system, because having one faster microservice 
 doesn't mean that rest of system can handle traffic and could lead to taking system down.
 
+## Scenarios
+* Respond with content `Hello, World!`
+* Burn for 75% CPU in around 20 steps (e.g. with 100 requests per second in every request burn 100% CPU for 7.5 ms)
+* Sleep for 75% CPU in around 20 steps
+* Respond with 1MB content
+
 ## Approach:
-* Return 200 response with content `Hello, World!`
 * Focusing on P99 under stable requests per second
 * Restricting http server to 1 core
 * Required to response to 99% of requests
 * Access logs disabled
 
 ## TODO
-* More advanced scenarios
 * More reproducable tests
 * Test multicore scalability
 
-## Results
-### Top 3 for 100 r/s
-* python3 falcon meinheld
-* rust hyper
-* python3 japronto (early preview)
-
-### Top 3 for 1k r/s
-* python3 falcon meinheld
-* golang fasthttp
-* haskell warp
-
-### Top 3 for 10k r/s
-* python3 japronto (early preview)
-* rust hyper
-* python3 vibora (alpha)
-
-### Full Table of P99 latency in ms
+### Hello World response P99 latency in ms
 | Language | Framework | Server    | Status        | 100 r/s    | 1000 r/s  | 10000 r/s |
 |----------|-----------|-----------|--------------:|-----------:|----------:|----------:|
 | python3  | falcon    | meinheld  |               | 1.99       | 2.04      | 881.15    |     
@@ -50,6 +38,7 @@ doesn't mean that rest of system can handle traffic and could lead to taking sys
 | python3  | sanic     |           |               | 2.52       | 3.07      | 20.61     |
 | python3  | flask     | bjoern    |               | 3.11       | 5.11      |           |
 | python3  | aiohttp   |           |               | 2.88       | 5.85      |           |
+| python3  | django    | meinheld  |               | 2.79       | 6.19      |           |
 | pypy2    | falcon    | meinheld  |               | 2.17       | 7.13      |           |
 | python3  | tornado   |           |               | 4.09       | 8.60      |           |
 | python3  | flask     | gevent    |               | 4.19       | 10.61     |           |
@@ -61,24 +50,86 @@ doesn't mean that rest of system can handle traffic and could lead to taking sys
 | python3  | flask     | sync      |               | 100.48     | 127.49    |           |
 | python2  | flask     | sync      |               | 100.93     | 129.47    |           |
 
+### Burn 75% CPU response P99 latency in ms
+| Language | Framework | Server    | Status        | 100 r/s    |
+|----------|-----------|-----------|--------------:|-----------:|
+| pypy2    | falcon    | meinheld  |               | 33.34      | 
+| python3  | falcon    | meinheld  |               | 34.94      |
+| python3  | flask     | meinheld  |               | 36.22      |
+| python3  | django    | meinheld  |               | 37.79      |
+| python3  | aiohttp   |           |               | 39.26      |
+| python3  | falcon    | gthread   |               | 39.84      |
+| python3  | falcon    | tornado   |               | 40.83      |
+| python3  | tornado   |           |               | 42.53      |
+| go       | net/http  |           |               | 43.52      |
+| python3  | japronto  |           | early preview | 45.09      |
+| python3  | vibora    |           | alpha         | 45.63      |
+| python3  | sanic     |           |               | 46.78      |
+| python3  | falcon    | eventlet  |               | 48.19      |
+| python3  | falcon    | netius    |               | 49.22      |
+| python3  | falcon    | gevent    |               | 49.28      |
+| python3  | falcon    | waitress  |               | 50.08      |
+| python3  | flask     | gevent    |               | 50.97      |
+| python3  | falcon    | bjoern    |               | 60.06      |
+| python3  | falcon    | sync      |               | 139.26     |
+
+### Sleep response P99 latency in ms
+| Language | Framework | Server    | Status        | 100 r/s    |
+|----------|-----------|-----------|--------------:|-----------:|
+| python3  | vibora    |           | alpha         | 9.45       |
+| python3  | japronto  |           | early preview | 9.58       |
+| python3  | sanic     |           |               | 9.87       |
+| go       | net/http  |           |               | 9.95       |
+| python3  | aiohttp   |           |               | 12.18      |
+| python3  | falcon    | waitress  |               | 12.4       |
+| python3  | falcon    | gevent    |               | 12.71      |
+| python3  | tornado   |           |               | 14.15      |
+| python3  | flask     | gevent    |               | 14.92      |
+| pypy2    | falcon    | meinheld  |               | 38.69      | 
+| python3  | falcon    | meinheld  |               | 38.91      |
+| python3  | flask     | meinheld  |               | 42.59      |
+| python3  | django    | meinheld  |               | 44.67      |
+| python3  | falcon    | gthread   |               | 52.06      |
+| python3  | falcon    | tornado   |               | 61.12      |
+| python3  | falcon    | bjoern    |               | 63.55      |
+| python3  | falcon    | eventlet  |               | 63.97      |
+| python3  | falcon    | netius    |               | 65.66      |
+| python3  | falcon    | sync      |               | 151.42     |
+
+### Return 1MB response P99 latency in ms
+| Language | Framework | Server    | Status        | 100 r/s    |
+|----------|-----------|-----------|--------------:|-----------:|
+| python3  | vibora    |           | alpha         | 3.32       |
+| python3  | japronto  |           | early preview | 3.54       |
+| python3  | falcon    | bjoern    |               | 3.61       |
+| python3  | falcon    | meinheld  |               | 3.65       |
+| python3  | django    | meinheld  |               | 3.88       |
+| python3  | sanic     |           |               | 3.88       |
+| python3  | flask     | meinheld  |               | 4.05       |
+| python3  | falcon    | eventlet  |               | 4.74       |
+| go       | net/http  |           |               | 4.84       |
+| python3  | falcon    | netius    |               | 5.42       |
+| python3  | flask     | gevent    |               | 5.59       |
+| python3  | falcon    | tornado   |               | 6.47       |
+| python3  | falcon    | gevent    |               | 6.51       |
+| python3  | aiohttp   |           |               | 6.56       |
+| python3  | falcon    | gthread   |               | 7.34       |
+| python3  | tornado   |           |               | 18.61      |
+| pypy2    | falcon    | meinheld  |               | 22.78      | 
+| python3  | falcon    | waitress  |               | 29.39      |
+| python3  | falcon    | sync      |               | 112.64     |
+
+
+###[Doc with all results](https://docs.google.com/spreadsheets/d/18TQOIZhg8CLunikgJyi3EGFDjYGLvQ5_RGj-DI2afT4/edit?usp=sharing)
+
 ## Running
 
 ### Start server 
 ```bash
-make sanic_python3
+make python3_sanic
 ```
 
-### Benchmark 100r/s
+### Benchmark 100r/s hello world scenario
 ```bash
-make benchmark_1
-```
-
-### Benchmark 1000r/s
-```bash
-make benchmark_2
-```
-
-### Benchmark 10000r/s
-```bash
-make benchmark_3
+make benchmark_1_hello
 ```

@@ -1,0 +1,6 @@
+[package]
+name = "http_rocket"
+version = "0.0.1"
+
+[dependencies]
+rocket = "*"

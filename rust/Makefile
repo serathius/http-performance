@@ -1,4 +1,4 @@
-hyper_rust: rust_image
+rust_hyper: rust_image
 	$(RUN) http_rust http_hyper/target/release/http_hyper
 
 rust_image:

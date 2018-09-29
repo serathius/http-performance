@@ -28,8 +28,8 @@ benchmark_1_work:
 benchmark_1_transfer:
 	$(RUN_BENCHMARK) --cpuset-cpus="1" 1vlad/wrk2-docker $(SCENARIO_1) $(TRANSFER_ENDPOINT) | $(EXTRACT_DATA) | $(EXTRACT_SHORT)
 
-benchmark_2:
-	$(RUN_BENCHMARK) --cpuset-cpus="1" 1vlad/wrk2-docker $(SCENARIO_2) $(HELLO_ENDPOINT) | $(EXTRACT_DATA)
+benchmark_2_hello:
+	$(RUN_BENCHMARK) --cpuset-cpus="1" 1vlad/wrk2-docker $(SCENARIO_2) $(HELLO_ENDPOINT) | $(EXTRACT_DATA) | $(EXTRACT_SHORT)
 
-benchmark_3:
-	$(RUN_BENCHMARK) --cpuset-cpus="1,2" 1vlad/wrk2-docker $(SCENARIO_3) $(HELLO_ENDPOINT) | $(EXTRACT_DATA)
+benchmark_3_hello:
+	$(RUN_BENCHMARK) --cpuset-cpus="1,2" 1vlad/wrk2-docker $(SCENARIO_3) $(HELLO_ENDPOINT) | $(EXTRACT_DATA) | $(EXTRACT_SHORT)

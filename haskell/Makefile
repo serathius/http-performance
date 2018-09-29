@@ -1,9 +1,4 @@
 haskell_image:
-	cd haskell/warp && stack build
-	cd haskell/yesod && stack build
-	cd haskell/scotty && stack build
-	cd haskell/snap && stack build
-	cd haskell/spock && stack build
 	docker build -t http_haskell haskell
 
 haskell_warp: haskell_image

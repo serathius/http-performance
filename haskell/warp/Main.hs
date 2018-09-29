@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 import Network.Wai (responseLBS, Application)
 import Network.Wai.Handler.Warp (run)
 import Network.HTTP.Types (status200)

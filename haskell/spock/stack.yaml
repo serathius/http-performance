@@ -1,0 +1,9 @@
+resolver: lts-12.10
+packages:
+- '.'
+extra-deps:
+- Spock-0.13.0.0
+- Spock-core-0.13.0.0
+- reroute-0.5.0.0
+flags: {}
+extra-package-dbs: []

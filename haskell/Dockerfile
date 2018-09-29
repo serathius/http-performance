@@ -5,6 +5,10 @@ COPY happystack/http.cabal happystack/http.cabal
 COPY happystack/stack.yaml happystack/stack.yaml
 RUN cd happystack && stack build || true
 
+COPY scotty/http.cabal scotty/http.cabal
+COPY scotty/stack.yaml scotty/stack.yaml
+RUN cd scotty && stack build || true
+
 COPY snap/http.cabal snap/http.cabal
 COPY snap/stack.yaml snap/stack.yaml
 RUN cd snap && stack build || true

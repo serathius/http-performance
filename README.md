@@ -53,6 +53,7 @@ doesn't mean that rest of system can handle traffic and could lead to taking sys
 ### Burn 75% CPU response P99 latency in ms
 | Language | Framework | Server    | Status        | 100 r/s    |
 |----------|-----------|-----------|--------------:|-----------:|
+| rust     | hyper     |           |               | 31.81      |
 | pypy2    | falcon    | meinheld  |               | 33.34      | 
 | python3  | falcon    | meinheld  |               | 34.94      |
 | python3  | flask     | meinheld  |               | 36.22      |
@@ -89,6 +90,7 @@ doesn't mean that rest of system can handle traffic and could lead to taking sys
 | python3  | falcon    | gevent    |               | 12.71      |
 | python3  | tornado   |           |               | 14.15      |
 | python3  | flask     | gevent    |               | 14.92      |
+| rust     | hyper     |           |               | 36.32      |
 | pypy2    | falcon    | meinheld  |               | 38.69      | 
 | python3  | falcon    | meinheld  |               | 38.91      |
 | python3  | flask     | meinheld  |               | 42.59      |

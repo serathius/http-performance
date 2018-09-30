@@ -26,7 +26,7 @@ doesn't mean that rest of system can handle traffic and could lead to taking sys
 | Language | Framework | Server    | Status        | 100 r/s    | 1000 r/s  | 10000 r/s |
 |----------|-----------|-----------|--------------:|-----------:|----------:|----------:|
 | python3  | falcon    | meinheld  |               | 1.99       | 2.04      | 881.15    |     
-| golang   |           | fasthttp  |               | 2.23       | 2.07      | 20.35     |
+| golang   |           | fast/http |               | 2.23       | 2.07      | 20.35     |
 | haskell  |           | warp      |               | 2.12       | 2.08      | 23.31     |
 | python3  | japronto  |           | early preview | 2.09       | 2.14      | 12.38     |
 | rust     | hyper     |           |               | 2.05       | 2.18      | 16.35     |
@@ -57,14 +57,16 @@ doesn't mean that rest of system can handle traffic and could lead to taking sys
 | python3  | falcon    | meinheld  |               | 34.94      |
 | python3  | flask     | meinheld  |               | 36.22      |
 | python3  | django    | meinheld  |               | 37.79      |
+| golang   |           | fast/http |               | 38.14      |
 | python3  | aiohttp   |           |               | 39.26      |
 | python3  | falcon    | gthread   |               | 39.84      |
 | python3  | falcon    | tornado   |               | 40.83      |
 | python3  | tornado   |           |               | 42.53      |
-| go       | net/http  |           |               | 43.52      |
+| golang   |           | net/http  |               | 43.52      |
 | python3  | japronto  |           | early preview | 45.09      |
 | python3  | vibora    |           | alpha         | 45.63      |
 | python3  | sanic     |           |               | 46.78      |
+| haskell  |           | warp      |               | 47.81      |
 | python3  | falcon    | eventlet  |               | 48.19      |
 | python3  | falcon    | netius    |               | 49.22      |
 | python3  | falcon    | gevent    |               | 49.28      |
@@ -79,7 +81,9 @@ doesn't mean that rest of system can handle traffic and could lead to taking sys
 | python3  | vibora    |           | alpha         | 9.45       |
 | python3  | japronto  |           | early preview | 9.58       |
 | python3  | sanic     |           |               | 9.87       |
-| go       | net/http  |           |               | 9.95       |
+| golang   |           | fast/http |               | 9.88       |
+| golang   |           | net/http  |               | 9.95       |
+| haskell  |           | warp      |               | 10.55      |
 | python3  | aiohttp   |           |               | 12.18      |
 | python3  | falcon    | waitress  |               | 12.4       |
 | python3  | falcon    | gevent    |               | 12.71      |
@@ -107,13 +111,14 @@ doesn't mean that rest of system can handle traffic and could lead to taking sys
 | python3  | sanic     |           |               | 3.88       |
 | python3  | flask     | meinheld  |               | 4.05       |
 | python3  | falcon    | eventlet  |               | 4.74       |
-| go       | net/http  |           |               | 4.84       |
+| golang   |           | net/http  |               | 4.84       |
 | python3  | falcon    | netius    |               | 5.42       |
 | python3  | flask     | gevent    |               | 5.59       |
 | python3  | falcon    | tornado   |               | 6.47       |
 | python3  | falcon    | gevent    |               | 6.51       |
 | python3  | aiohttp   |           |               | 6.56       |
 | python3  | falcon    | gthread   |               | 7.34       |
+| golang   |           | fast/http |               | 11.28      |
 | python3  | tornado   |           |               | 18.61      |
 | pypy2    | falcon    | meinheld  |               | 22.78      | 
 | python3  | falcon    | waitress  |               | 29.39      |
